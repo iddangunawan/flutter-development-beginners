@@ -1,4 +1,4 @@
-# flutter_dynamic_checkboxes
+# Flutter Development for Beginners
 
 A new Flutter application.
 

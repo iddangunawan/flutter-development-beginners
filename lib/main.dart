@@ -8,17 +8,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool orangeVal = false;
-  bool lemonVal = false;
-  bool appleVal = false;
+  bool isShowing = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Checkbox'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text('Circular Progress Indicator')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,51 +21,24 @@ class _MyAppState extends State<MyApp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Orange checkbox
+                // Checkbox
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Orange"),
+                    Text("Progress"),
                     Checkbox(
-                        value: orangeVal,
+                        value: isShowing,
                         onChanged: (bool value) {
                           setState(() {
-                            orangeVal = value;
-                          });
-                        })
-                  ],
-                ),
-                // Lemon checkbox
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Lemon"),
-                    Checkbox(
-                        value: lemonVal,
-                        onChanged: (bool value) {
-                          setState(() {
-                            lemonVal = value;
-                          });
-                        })
-                  ],
-                ),
-                // Apple checkbox
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Apple"),
-                    Checkbox(
-                        value: appleVal,
-                        onChanged: (bool value) {
-                          setState(() {
-                            appleVal = value;
+                            isShowing = value;
                           });
                         })
                   ],
                 )
               ],
             ),
-            Text("Orange: $orangeVal\nLemon: $lemonVal\nApple: $appleVal")
+            // Progress
+            isShowing == true ? CircularProgressIndicator() : Container()
           ],
         ),
       ),
